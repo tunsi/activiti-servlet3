@@ -26,6 +26,7 @@
     Index
     
     <a href="/edit.jsp">发布新的流程定义</a> |
+    <a href="/editModel">创建新的流程定义</a> |
     <a href="/h2" target="_blank">数据库</a>
     
     <h2>流程定义</h2>

@@ -3,9 +3,10 @@ package me.tunsi.activiti;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import me.tunsi.web.BaseServlet;
 
 import org.activiti.engine.FormService;
 import org.activiti.engine.HistoryService;
@@ -17,7 +18,7 @@ import org.activiti.engine.TaskService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-public abstract class BaseActivitiServlet extends HttpServlet {
+public abstract class BaseActivitiServlet extends BaseServlet {
 
 	private static final long serialVersionUID = 8075503249799515863L;
 
@@ -26,13 +27,7 @@ public abstract class BaseActivitiServlet extends HttpServlet {
 	private ProcessEngine _processEngine;
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		doInit(req, resp);
-		doService(req, resp);
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doInternal(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doInit(req, resp);
 		doService(req, resp);
 	}
